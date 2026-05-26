@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ХолодСамара — обслуживание кондиционеров</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header class="hero">
+        <nav class="nav">
+            <div class="logo">❄ ХолодСамара</div>
+            <div class="nav-links">
+                <a href="#services">Услуги</a>
+                <a href="#masters">Мастера</a>
+                <a href="#reviews">Отзывы</a>
+                <a href="#contacts">Контакты</a>
+            </div>
+            <a class="phone" href="tel:+79991234567">{{ phone }}</a>
+        </nav>
+
+        <div class="hero-content">
+            <div class="hero-text">
+                <p class="tag">Самара и область до 40 км</p>
+                <h1>Обслуживание кондиционеров с выездом на дом</h1>
+                <p class="lead">
+                    Чистка, диагностика, заправка фреоном, монтаж и демонтаж сплит-систем.
+                    Работаем аккуратно, быстро и без лишних навязанных услуг.
+                </p>
+                <div class="hero-actions">
+                    <a href="#contacts" class="btn primary">Оставить заявку</a>
+                    <a href="#services" class="btn secondary">Посмотреть услуги</a>
+                </div>
+            </div>
+
+            <div class="hero-card">
+                <div class="temp">+18°C</div>
+                <p>Настроим комфортную температуру дома, в офисе или магазине.</p>
+                <ul>
+                    <li>Выезд по Самаре</li>
+                    <li>Гарантия на работы</li>
+                    <li>Связь по телефону</li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="services" class="section">
+            <div class="section-head">
+                <p class="tag">Что делаем</p>
+                <h2>Услуги</h2>
+            </div>
+            <div class="grid services-grid">
+                {% for service in services %}
+                <article class="card service-card">
+                    <div class="icon">🧰</div>
+                    <h3>{{ service.title }}</h3>
+                    <p>{{ service.description }}</p>
+                    <strong>{{ service.price }}</strong>
+                </article>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section id="masters" class="section blue-section">
+            <div class="section-head">
+                <p class="tag">Наша бригада</p>
+                <h2>Мастера в рабочей форме</h2>
+                <p class="muted">
+                    На карточках используются ваши фотографии. На сайте они оформлены как сотрудники сервиса:
+                    бейдж, рабочий стиль и описание специализации.
+                </p>
+            </div>
+
+            <div class="grid masters-grid">
+                {% for master in masters %}
+                <article class="master-card">
+                    <div class="photo-wrap">
+                        <img src="{{ master.photo }}" alt="{{ master.name }}">
+                        <span class="badge">форма сервиса</span>
+                    </div>
+                    <div class="master-info">
+                        <h3>{{ master.name }}</h3>
+                        <p>{{ master.role }}</p>
+                        <div class="chips">
+                            <span>выезд</span>
+                            <span>инструменты</span>
+                            <span>гарантия</span>
+                        </div>
+                    </div>
+                </article>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-head">
+                <p class="tag">Где работаем</p>
+                <h2>Область выезда вокруг Самары</h2>
+            </div>
+
+            <div class="coverage">
+                {% for item in coverage %}
+                <span>{{ item }}</span>
+                {% endfor %}
+            </div>
+
+            <div class="map-box">
+                <div class="map-circle">
+                    <div class="map-center">Самара</div>
+                    <div class="map-radius">до 40 км</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="reviews" class="section">
+            <div class="section-head">
+                <p class="tag">Отзывы</p>
+                <h2>Что говорят клиенты</h2>
+            </div>
+            <div class="grid reviews-grid">
+                {% for review in reviews %}
+                <article class="card review-card">
+                    <div class="stars">
+                        {% for _ in range(review.rating) %}★{% endfor %}
+                    </div>
+                    <p>«{{ review.text }}»</p>
+                    <strong>{{ review.name }}</strong>
+                </article>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section id="contacts" class="section contact-section">
+            <div class="contact-card">
+                <div>
+                    <p class="tag">Связь</p>
+                    <h2>Оставьте заявку</h2>
+                    <p class="muted">
+                        Укажите имя и телефон. Форма демонстрационная: заявка не сохраняется в БД,
+                        но backend принимает POST-запрос на /api/lead.
+                    </p>
+                    <a class="big-phone" href="tel:+79991234567">{{ phone }}</a>
+                </div>
+
+                <form id="leadForm" class="lead-form">
+                    <input type="text" name="name" placeholder="Ваше имя" required>
+                    <input type="tel" name="phone" placeholder="Телефон" required>
+                    <textarea name="message" placeholder="Что нужно сделать?"></textarea>
+                    <button type="submit" class="btn primary">Отправить</button>
+                    <p id="formResult" class="form-result"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 ХолодСамара. Обслуживание кондиционеров.</p>
+    </footer>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
