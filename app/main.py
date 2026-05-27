@@ -61,12 +61,12 @@ MASTERS = [
     {
         "name": "Данил",
         "role": "Мастер по чистке и диагностике",
-        "photo": "/static/images/master_1.png",
+        "photo": "/static/images/master_1.svg",
     },
     {
         "name": "Артём",
         "role": "Мастер по чистке и диагностике",
-        "photo": "/static/images/master_2.png",
+        "photo": "/static/images/master_2.svg",
     },
 ]
 
