@@ -10,23 +10,28 @@
     <header class="hero">
         <nav class="nav">
             <div class="logo">❄ ХолодСамара</div>
+
             <div class="nav-links">
                 <a href="#services">Услуги</a>
                 <a href="#masters">Мастера</a>
                 <a href="#reviews">Отзывы</a>
                 <a href="#contacts">Контакты</a>
             </div>
-            <a class="phone" href="tel:+79991234567">{{ phone }}</a>
+
+            <a class="phone" href="tel:+79991234567">+7 (999) 123-45-67</a>
         </nav>
 
         <div class="hero-content">
             <div class="hero-text">
                 <p class="tag">Самара и область до 40 км</p>
+
                 <h1>Обслуживание кондиционеров с выездом на дом</h1>
+
                 <p class="lead">
                     Чистка, диагностика, заправка фреоном, монтаж и демонтаж сплит-систем.
                     Работаем аккуратно, быстро и без лишних навязанных услуг.
                 </p>
+
                 <div class="hero-actions">
                     <a href="#contacts" class="btn primary">Оставить заявку</a>
                     <a href="#services" class="btn secondary">Посмотреть услуги</a>
@@ -35,7 +40,11 @@
 
             <div class="hero-card">
                 <div class="temp">+18°C</div>
-                <p>Настроим комфортную температуру дома, в офисе или магазине.</p>
+
+                <p>
+                    Настроим комфортную температуру дома, в офисе или магазине.
+                </p>
+
                 <ul>
                     <li>Выезд по Самаре</li>
                     <li>Гарантия на работы</li>
@@ -51,15 +60,46 @@
                 <p class="tag">Что делаем</p>
                 <h2>Услуги</h2>
             </div>
+
             <div class="grid services-grid">
-                {% for service in services %}
                 <article class="card service-card">
-                    <div class="icon">🧰</div>
-                    <h3>{{ service.title }}</h3>
-                    <p>{{ service.description }}</p>
-                    <strong>{{ service.price }}</strong>
+                    <div class="icon">🧼</div>
+                    <h3>Чистка кондиционера</h3>
+                    <p>
+                        Разборка внутреннего блока, промывка фильтров,
+                        обработка испарителя и дренажа.
+                    </p>
+                    <strong>от 2 000 ₽</strong>
                 </article>
-                {% endfor %}
+
+                <article class="card service-card">
+                    <div class="icon">❄️</div>
+                    <h3>Заправка фреоном</h3>
+                    <p>
+                        Проверка давления, поиск явных утечек,
+                        дозаправка системы хладагентом.
+                    </p>
+                    <strong>от 2 500 ₽</strong>
+                </article>
+
+                <article class="card service-card">
+                    <div class="icon">🔎</div>
+                    <h3>Диагностика</h3>
+                    <p>
+                        Проверка компрессора, вентилятора, платы управления
+                        и температурных режимов.
+                    </p>
+                    <strong>от 1 000 ₽</strong>
+                </article>
+
+                <article class="card service-card">
+                    <div class="icon">🛠️</div>
+                    <h3>Монтаж и демонтаж</h3>
+                    <p>
+                        Аккуратная установка, перенос или снятие сплит-системы.
+                    </p>
+                    <strong>от 6 000 ₽</strong>
+                </article>
             </div>
         </section>
 
@@ -68,21 +108,22 @@
                 <p class="tag">Наша бригада</p>
                 <h2>Мастера в рабочей форме</h2>
                 <p class="muted">
-                    На карточках используются ваши фотографии. На сайте они оформлены как сотрудники сервиса:
-                    бейдж, рабочий стиль и описание специализации.
+                    На карточках используются фотографии мастеров.
+                    Блок оформлен под сайт сервиса по обслуживанию кондиционеров.
                 </p>
             </div>
 
             <div class="grid masters-grid">
-                {% for master in masters %}
                 <article class="master-card">
                     <div class="photo-wrap">
-                        <img src="{{ master.photo }}" alt="{{ master.name }}">
+                        <img src="./static/images/master_1.png" alt="Мастер Данил">
                         <span class="badge">форма сервиса</span>
                     </div>
+
                     <div class="master-info">
-                        <h3>{{ master.name }}</h3>
-                        <p>{{ master.role }}</p>
+                        <h3>Данил</h3>
+                        <p>Мастер по чистке и диагностике</p>
+
                         <div class="chips">
                             <span>выезд</span>
                             <span>инструменты</span>
@@ -90,7 +131,24 @@
                         </div>
                     </div>
                 </article>
-                {% endfor %}
+
+                <article class="master-card">
+                    <div class="photo-wrap">
+                        <img src="./static/images/master_2.png" alt="Мастер Артём">
+                        <span class="badge">форма сервиса</span>
+                    </div>
+
+                    <div class="master-info">
+                        <h3>Артём</h3>
+                        <p>Мастер по монтажу и заправке</p>
+
+                        <div class="chips">
+                            <span>монтаж</span>
+                            <span>фреон</span>
+                            <span>гарантия</span>
+                        </div>
+                    </div>
+                </article>
             </div>
         </section>
 
@@ -101,9 +159,15 @@
             </div>
 
             <div class="coverage">
-                {% for item in coverage %}
-                <span>{{ item }}</span>
-                {% endfor %}
+                <span>Самара</span>
+                <span>Новокуйбышевск</span>
+                <span>Кинель</span>
+                <span>Красный Яр</span>
+                <span>Волжский</span>
+                <span>Курумоч</span>
+                <span>Управленческий</span>
+                <span>Мехзавод</span>
+                <span>Южный город</span>
             </div>
 
             <div class="map-box">
@@ -119,16 +183,34 @@
                 <p class="tag">Отзывы</p>
                 <h2>Что говорят клиенты</h2>
             </div>
+
             <div class="grid reviews-grid">
-                {% for review in reviews %}
                 <article class="card review-card">
-                    <div class="stars">
-                        {% for _ in range(review.rating) %}★{% endfor %}
-                    </div>
-                    <p>«{{ review.text }}»</p>
-                    <strong>{{ review.name }}</strong>
+                    <div class="stars">★★★★★</div>
+                    <p>
+                        «Быстро приехали, почистили кондиционер,
+                        стало заметно тише и холоднее.»
+                    </p>
+                    <strong>Алексей</strong>
                 </article>
-                {% endfor %}
+
+                <article class="card review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>
+                        «Нужно было срочно дозаправить фреон.
+                        Всё сделали в тот же день.»
+                    </p>
+                    <strong>Марина</strong>
+                </article>
+
+                <article class="card review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>
+                        «Понравилось, что заранее назвали цену
+                        и ничего лишнего не навязывали.»
+                    </p>
+                    <strong>Игорь</strong>
+                </article>
             </div>
         </section>
 
@@ -136,21 +218,31 @@
             <div class="contact-card">
                 <div>
                     <p class="tag">Связь</p>
-                    <h2>Оставьте заявку</h2>
+                    <h2>Записаться на обслуживание</h2>
+
                     <p class="muted">
-                        Укажите имя и телефон. Форма демонстрационная: заявка не сохраняется в БД,
-                        но backend принимает POST-запрос на /api/lead.
+                        Позвоните мастеру и опишите проблему:
+                        чистка, заправка, диагностика или монтаж кондиционера.
                     </p>
-                    <a class="big-phone" href="tel:+79991234567">{{ phone }}</a>
+
+                    <a class="big-phone" href="tel:+79991234567">
+                        +7 (999) 123-45-67
+                    </a>
                 </div>
 
-                <form id="leadForm" class="lead-form">
-                    <input type="text" name="name" placeholder="Ваше имя" required>
-                    <input type="tel" name="phone" placeholder="Телефон" required>
-                    <textarea name="message" placeholder="Что нужно сделать?"></textarea>
-                    <button type="submit" class="btn primary">Отправить</button>
-                    <p id="formResult" class="form-result"></p>
-                </form>
+                <div class="lead-form">
+                    <a href="tel:+79991234567" class="btn primary">
+                        Позвонить
+                    </a>
+
+                    <a href="https://t.me/username" class="btn secondary">
+                        Написать в Telegram
+                    </a>
+
+                    <p class="form-result">
+                        Работаем по Самаре и ближайшим районам.
+                    </p>
+                </div>
             </div>
         </section>
     </main>
@@ -158,7 +250,5 @@
     <footer class="footer">
         <p>© 2026 ХолодСамара. Обслуживание кондиционеров.</p>
     </footer>
-
-    <script src="./static/js/main.js"></script>
 </body>
 </html>
