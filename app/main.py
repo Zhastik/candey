@@ -11,7 +11,7 @@ app = FastAPI(
 )
 
 app.mount("/static", StaticFiles(directory="app/static"), name="static")
-templates = Jinja2Templates(directory="app/templates")
+templates = Jinja2Templates(directory="app")
 
 
 SERVICES = [
@@ -61,12 +61,12 @@ MASTERS = [
     {
         "name": "Данил",
         "role": "Мастер по чистке и диагностике",
-        "photo": "/static/images/master_1.png",
+        "photo": "./static/images/master_1.png",
     },
     {
         "name": "Артём",
         "role": "Мастер по чистке и диагностике",
-        "photo": "/static/images/master_2.png",
+        "photo": "./static/images/master_2.png",
     },
 ]
 
